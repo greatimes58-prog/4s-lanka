@@ -1931,8 +1931,6 @@ body.no-scroll .modal-close {
     .color-options,
     .product-colours,
     .product-colors {
-        position: sticky;
-        bottom: 0;
         z-index: 100;
         padding: 12px;
         background: rgba(255, 255, 255, 0.96);
@@ -2053,4 +2051,36 @@ body.no-scroll .modal-close {
         min-height: 64px;
     }
 
+}
+/* FINAL MOBILE COLOUR DOT FIX */
+
+@media screen and (max-width: 600px) {
+
+    /* Product modal closed என்றால் அதன் contents அனைத்தும் மறைய வேண்டும் */
+    #productModal:not(.open),
+    .product-modal:not(.open) {
+        display: none !important;
+    }
+
+    #productModal:not(.open) .colour-options,
+    .product-modal:not(.open) .colour-options {
+        display: none !important;
+    }
+
+    /* Colour buttons Select Colour இடத்தில் மட்டும் normal-ஆ இருக்கும் */
+    #productModal.open .colour-options,
+    .product-modal.open .colour-options {
+        position: static !important;
+        inset: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        margin: 12px 0 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        z-index: auto !important;
+    }
 }
