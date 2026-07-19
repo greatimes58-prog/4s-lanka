@@ -2066,3 +2066,15 @@ body.no-scroll .modal-close {
     }
 
 }
+/* Remove duplicate colour dots from image gallery */
+
+@media screen and (max-width: 600px) {
+
+    .product-gallery .colour-options,
+    .product-gallery .color-options,
+    .product-gallery .colour-buttons,
+    .product-gallery .color-buttons {
+        display: none !important;
+    }
+
+}
