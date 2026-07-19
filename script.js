@@ -978,6 +978,77 @@ function renderProductDetails() {
                     ${product.description}
 
                 </p>
+                <div class="product-highlights-modern">
+
+    <div class="highlights-heading">
+        <span class="highlights-icon">✦</span>
+
+        <div>
+            <p>WHY YOU'LL LOVE IT</p>
+            <h3>Product Highlights</h3>
+        </div>
+    </div>
+
+    <div class="highlights-grid">
+
+        <div class="highlight-item">
+            <span>💧</span>
+            <p>Premium Waterproof PU Leather</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>💻</span>
+            <p>Fits Up to 15.6" Laptop</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>📏</span>
+            <p>Size: 41 × 29 × 13 cm</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>🎒</span>
+            <p>Large 20–39L Storage Capacity</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>🗂️</span>
+            <p>Multiple Compartments with Computer Sleeve</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>🛡️</span>
+            <p>Comfortable Ergonomic Back Support</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>⚡</span>
+            <p>Durable Smooth Zipper Closure</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>👜</span>
+            <p>Soft Top Handle for Easy Carrying</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>✨</span>
+            <p>Lightweight & Stylish Design</p>
+        </div>
+
+        <div class="highlight-item">
+            <span>🏢</span>
+            <p>Perfect for School, Office, Business & Travel</p>
+        </div>
+
+        <div class="highlight-item highlight-wide">
+            <span>👫</span>
+            <p>Suitable for Men & Women</p>
+        </div>
+
+    </div>
+
+</div>
 
 
                 <strong>
@@ -992,79 +1063,7 @@ function renderProductDetails() {
                 </div>
 
 
-                <ul class="specification-list">
-
-
-                    <li>
-
-                        <span>
-                            Bag Size
-                        </span>
-
-                        <strong>
-                            ${product.size}
-                        </strong>
-
-                    </li>
-
-
-                    <li>
-
-                        <span>
-                            Laptop Size
-                        </span>
-
-                        <strong>
-                            ${product.laptopSize}
-                        </strong>
-
-                    </li>
-
-
-                    <li>
-
-                        <span>
-                            Material
-                        </span>
-
-                        <strong>
-                            ${product.material}
-                        </strong>
-
-                    </li>
-
-
-                    <li>
-
-                        <span>
-                            Storage
-                        </span>
-
-                        <strong>
-                            ${product.storage}
-                        </strong>
-
-                    </li>
-
-
-                    <li>
-
-                        <span>
-                            Available Colours
-                        </span>
-
-                        <strong>
-
-                            Blue, Black,
-                            Gray, Army Green
-
-                        </strong>
-
-                    </li>
-
-
-                </ul>
-
+       
 
                 <div class="add-cart-row">
 
@@ -2175,3 +2174,76 @@ window.addEventListener("scroll", () => {
         currentScrollPosition;
 
 });
+/* BAG IMAGE CLICK ZOOM */
+
+const imageZoomModal =
+    document.getElementById("imageZoomModal");
+
+const zoomedBagImage =
+    document.getElementById("zoomedBagImage");
+
+const imageZoomClose =
+    document.getElementById("imageZoomClose");
+
+
+document.addEventListener("click", (event) => {
+
+    const clickedImage =
+        event.target.closest(".product-card img");
+
+    if (!clickedImage) {
+        return;
+    }
+
+    zoomedBagImage.src =
+        clickedImage.src;
+
+    zoomedBagImage.alt =
+        clickedImage.alt || "Zoomed bag";
+
+    imageZoomModal.classList.add("open");
+
+    document.body.style.overflow =
+        "hidden";
+
+});
+
+
+function closeBagZoom() {
+
+    imageZoomModal.classList.remove("open");
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+imageZoomClose.addEventListener(
+    "click",
+    closeBagZoom
+);
+
+
+imageZoomModal.addEventListener(
+    "click",
+    (event) => {
+
+        if (event.target === imageZoomModal) {
+            closeBagZoom();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "Escape") {
+            closeBagZoom();
+        }
+
+    }
+);
