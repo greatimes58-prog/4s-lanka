@@ -2078,3 +2078,28 @@ body.no-scroll .modal-close {
     }
 
 }
+/* Fix mobile colour buttons position */
+
+@media screen and (max-width: 600px) {
+
+    .colour-options {
+        position: static !important;
+        inset: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        margin-top: 12px;
+        padding: 0 !important;
+
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        z-index: auto !important;
+    }
+}
