@@ -2054,3 +2054,15 @@ body.no-scroll .modal-close {
     }
 
 }
+/* Hide duplicate colour dots under thumbnails on mobile */
+
+@media screen and (max-width: 600px) {
+
+    .product-thumbnails .colour-options,
+    .product-thumbnails .color-options,
+    .thumbnail-button .colour-options,
+    .thumbnail-button .color-options {
+        display: none !important;
+    }
+
+}
